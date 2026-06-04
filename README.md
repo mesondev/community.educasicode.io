@@ -1,62 +1,85 @@
-<p align="center"><a href="https://laravel.com" target="_blank"> <img width="1919" height="1079" alt="tampilan dashboard" src="https://github.com/user-attachments/assets/2ff70e3d-6a9d-40dd-ac22-fcf3da89f407" />
+# EducasiCode Papua Website
 
-    <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
-</a></p>
+Dokumentasi singkat untuk halaman-halaman dan struktur aset situs EducasiCode Papua.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Ringkasan
 
-## About Laravel
+Proyek ini berisi kumpulan halaman HTML statis yang mendukung tampilan website komunitas dan kursus EducasiCode Papua. Halaman utama, kursus, kontributor, TechShare, kontak, pendaftaran, dan login tersedia di root proyek.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Halaman Utama
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- `index.html` - Halaman beranda dengan hero, tombol CTA, gambar slider, dan logo partner.
+- `abouts.html` - Halaman About Us yang menjelaskan misi, visi, dan informasi komunitas.
+- `course.html` - Halaman Kelas Kursus dengan detail program, modul, daftar mentor/kontributor, dan tombol pendaftaran.
+- `techshere.html` - Halaman TechShare yang menampilkan inisiatif, kegiatan, dan dukungan teknologi.
+- `contributors.html` - Halaman Profil Contributors yang menampilkan anggota komunitas dan grafik persentase peran.
+- `contact.html` - Halaman kontak dengan formulir pesan.
+- `login.html` - Halaman login UI placeholder.
+- `register.html` - Halaman pendaftaran UI dan formulir pendaftaran.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Fitur Utama
 
-## Learning Laravel
+- Tema gelap/terang dengan tombol toggle.
+- Menu navigasi responsif dan mobile hamburger.
+- Hero image rotasi otomatis di halaman beranda.
+- Modal pendaftaran yang muncul saat tombol `Daftar Sekarang` diklik.
+- Grafik persentase peran `Mentor` dan `Contributor` di halaman contributors.
+- Favicon menggunakan logo `edukasicode.png`.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## Struktur Proyek
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```
+/asset
+  /css
+    style.css
+  /images
+    edukasicode.png
+    sacode.png
+    SAGU-FOUNDATION-FONT-HITAM-1.png
+    /contributors
+      images-Meson.jpeg
+      images Jansen-faidiban.jpg
+      images-samuel.jpg
+      rois-wanimbo.png
+      Mr.Mee.png
+      about-janzen-papuancoders.png
+/asset/js
+  script.js
+/index.html
+/abouts.html
+/course.html
+/techshere.html
+/contributors.html
+/contact.html
+/login.html
+/register.html
+```
 
-## Laravel Sponsors
+## Teknologi
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- HTML
+- CSS
+- JavaScript
 
-### Premium Partners
+## Cara Menjalankan
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+1. Buka file `index.html` di browser Anda.
+2. Atau gunakan server lokal sederhana:
+   - `python -m http.server 8000` (untuk Python 3)
+   - `npx serve .`
+3. Akses `http://localhost:8000`.
 
-## Contributing
+## Catatan Penting
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- Konten pendaftaran saat ini ditangani oleh modal frontend, tidak terhubung ke backend nyata.
+- Halaman login dan register berfungsi sebagai UI placeholder.
+- Untuk memperbarui gambar hero, gunakan file yang tersedia di `asset/images/contributors`.
 
-## Code of Conduct
+## Pengembangan
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- `asset/css/style.css` - Styling utama dan responsif.
+- `asset/js/script.js` - Interaksi tema, menu, slider, modal pendaftaran, dan grafik peran.
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Dokumen ini dibuat untuk mendokumentasikan seluruh halaman dan fitur situs EducasiCode Papua saat ini.
