@@ -1,0 +1,530 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kelas Kursus | EducasiCode Papua</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="./asset/images/edukasicode.png" type="image/png">
+  <link rel="stylesheet" href="./asset/css/style.css">
+  <style>
+    .course-hero {
+      min-height: 100vh;
+      padding: 140px 5% 60px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .course-hero h1 {
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      margin-bottom: 20px;
+      color: var(--text-primary);
+    }
+
+    .course-hero h1 span {
+      color: var(--accent);
+    }
+
+    .course-hero p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 720px;
+      margin-bottom: 30px;
+    }
+
+    .course-hero .course-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .course-hero .course-tag {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(46, 123, 255, 0.12);
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .course-hero .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .course-summary {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .course-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
+
+    .course-card h3 {
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .course-card p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .course-image {
+      border-radius: 30px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      background: var(--bg-card);
+    }
+
+    .course-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .section-title {
+      margin-bottom: 30px;
+      font-size: 2rem;
+      color: var(--text-primary);
+    }
+
+    .section-intro {
+      max-width: 780px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      line-height: 1.8;
+    }
+
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .module-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .module-card h4 {
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+
+    .module-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .course-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .detail-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 16px;
+    }
+
+    .detail-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: start;
+      color: var(--text-secondary);
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .detail-list li i {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-top: 4px;
+    }
+
+    .mentor-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .mentor-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .mentor-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      border: 3px solid var(--accent);
+    }
+
+    .mentor-card h4 {
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .mentor-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .faq-grid {
+      display: grid;
+      gap: 18px;
+      margin-bottom: 60px;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .faq-item h4 {
+      margin-bottom: 12px;
+      color: var(--text-primary);
+      font-size: 1rem;
+    }
+
+    .faq-item p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    .enroll-card {
+      background: linear-gradient(135deg, rgba(46,123,255,0.18), rgba(9,131,255,0.08));
+      border: 1px solid rgba(46,123,255,0.25);
+      border-radius: 28px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 100px;
+    }
+
+    .enroll-card h2 {
+      margin-bottom: 14px;
+      font-size: 2rem;
+    }
+
+    .enroll-card p {
+      color: var(--text-secondary);
+      max-width: 640px;
+      line-height: 1.8;
+    }
+
+    .enroll-card .enroll-btn {
+      padding: 16px 28px;
+      border-radius: 14px;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .enroll-card .enroll-btn:hover {
+      transform: translateY(-2px);
+      background: var(--accent-hover);
+    }
+
+    @media (max-width: 1024px) {
+      .course-hero {
+        grid-template-columns: 1fr;
+        padding-top: 120px;
+      }
+
+      .course-summary,
+      .course-details,
+      .mentor-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .enroll-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .course-hero {
+        padding-top: 110px;
+      }
+
+      .section-title {
+        font-size: 1.75rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .course-hero {
+        padding-top: 100px;
+      }
+
+      .hero-actions,
+      .course-tags {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body data-theme="dark">
+  <div class="bg-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <header class="navbar">
+    <a href="index.html" class="logo-container">
+      <img src="./asset/images/edukasicode.png" alt="Logo" class="logo-img">
+      <span class="brand-name">EducasiCode</span>
+    </a>
+
+    <nav class="nav-menu" id="navMenu">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="course.html" class="nav-link active">Kelas Kursus</a>
+      <a href="abouts.html" class="nav-link">About Us</a>
+      <a href="techshere.html" class="nav-link">TechShare</a>
+      <a href="contributors.html" class="nav-link">Contributors</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="login.html" class="nav-link nav-login">Login</a>
+      <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+        <div class="toggle-ball">
+          <i class="fas fa-sun"></i>
+          <i class="fas fa-moon"></i>
+        </div>
+      </div>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="course-hero">
+    <div>
+      <span class="badge">Kursus Intensif</span>
+      <h1>Program <span>Kelas Kursus</span> Web & IT</h1>
+      <p>Belajar dari dasar sampai mahir dalam pengembangan website, database, dan tools digital. Program ini dirancang untuk pelajar, pemula, dan peserta yang ingin membangun karir teknologi dari Papua.</p>
+      <div class="course-tags">
+        <span class="course-tag">Online / Offline</span>
+        <span class="course-tag">Sertifikat Resmi</span>
+        <span class="course-tag">Mentor Lokal</span>
+        <span class="course-tag">Project Nyata</span>
+      </div>
+      <div class="hero-actions">
+        <button class="btn btn-primary" data-open-register><i class="fas fa-paper-plane"></i> Daftar Sekarang</button>
+        <button class="btn btn-secondary"><a href="#modul">Lihat Modul</a></button>
+      </div>
+
+      <div class="course-summary">
+        <div class="course-card">
+          <h3>Durasi</h3>
+          <p>12 minggu pembelajaran intensif dengan sesi tatap muka dan praktik proyek setiap minggu.</p>
+        </div>
+        <div class="course-card">
+          <h3>Level</h3>
+          <p>Mulai dari pemula, menengah, hingga persiapan karir junior developer.</p>
+        </div>
+        <div class="course-card">
+          <h3>Hasil</h3>
+          <p>Membuat website responsif, backend sederhana, dan portofolio digital.</p>
+        </div>
+        <div class="course-card">
+          <h3>Komunitas</h3>
+          <p>Bergabung ke komunitas EducasiCode untuk peluang magang, kerja, dan kolaborasi proyek.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-image">
+      <img src="./asset/images/edukasicode.png" alt="Kelas Kursus IT">
+    </div>
+  </main>
+
+  <section class="container" id="modul">
+    <h2 class="section-title">Rangkaian Modul Kelas</h2>
+    <p class="section-intro">Setiap modul dirancang agar peserta mudah mengikuti, dengan materi teori singkat dan praktik langsung pada proyek nyata.</p>
+
+    <div class="module-grid">
+      <!-- <article class="module-card">
+        <h4>Modul 1: Dasar Web</h4>
+        <p>HTML, CSS, dan tata letak responsif menggunakan Flexbox & Grid untuk membangun halaman website modern.</p>
+      </article> -->
+      <article class="module-card">
+        <h4>Modul 2: JavaScript Interaktif</h4>
+        <p>Memahami logika pemrograman, DOM, event, dan membuat fitur interaktif pada website.</p>
+      </article>
+      <article class="module-card">
+        <h4>Modul 3: Backend Sederhana</h4>
+        <p>Dasar server, database, dan API untuk menyimpan data pengguna serta membuat form pendaftaran.</p>
+      </article>
+      <!-- <article class="module-card">
+        <h4>Modul 4: Database & Cloud</h4>
+        <p>Belajar SQL, manajemen data, dan cara menyimpan proyek di platform cloud.</p>
+      </article> -->
+      <!-- <article class="module-card">
+        <h4>Modul 5: UI/UX Dasar</h4>
+        <p>Desain antarmuka yang ramah pengguna, palet warna, tipografi, dan alur navigasi.</p>
+      </article> -->
+      <article class="module-card">
+        <h4>Modul 6: Portofolio</h4>
+        <p>Menyusun website portofolio pribadi sebagai bukti hasil belajar dan representasi skill.</p>
+      </article>
+    </div>
+
+    <div class="course-details">
+      <div>
+        <h3 class="section-title">Detail Kursus</h3>
+        <ul class="detail-list">
+          <li><i class="fas fa-calendar-days"></i><div><strong>Jadwal:</strong> Senin & Kamis, 18.00 - 20.30 WIT</div></li>
+          <li><i class="fas fa-clock"></i><div><strong>Durasi:</strong> 12 minggu / 36 sesi</div></li>
+          <li><i class="fas fa-globe"></i><div><strong>Metode:</strong> Online + Offline Papua</div></li>
+          <li><i class="fas fa-certificate"></i><div><strong>Sertifikat:</strong> Sertifikat akhir kelas resmi</div></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="section-title">Apa yang Kamu Dapatkan</h3>
+        <ul class="detail-list">
+          <li><i class="fas fa-code"></i><div>Project website portofolio</div></li>
+          <li><i class="fas fa-user-friends"></i><div>Bimbingan mentor dan review langsung</div></li>
+          <li><i class="fas fa-rocket"></i><div>Akses komunitas EducasiCode</div></li>
+          <li><i class="fas fa-briefcase"></i><div>Persiapan kerja sebagai Junior Developer</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="section-title">Mentor & Kontributor</h2>
+      <p class="section-intro">Tim mentor dan kontributor kami adalah praktisi IT, developer, dan pendukung komunitas yang aktif membimbing peserta kursus.</p>
+      <div class="mentor-grid">
+        <article class="mentor-card">
+          <img src="./asset/images/contributors/images Jansen-faidiban.jpg" alt="Janzen Faidiban">
+          <h4>Janzen Faidiban</h4>
+          <p>Full-stack mentor dengan pengalaman membangun aplikasi web dan sistem informasi lokal.</p>
+        </article>
+        <article class="mentor-card">
+          <img src="./asset/images/contributors/images-samuel.jpg" alt="Samuel Bosawer">
+          <h4>Samuel Bosawer</h4>
+          <p>Trainer database dan cloud yang membimbing peserta membuat backend nyata secara bertahap.</p>
+        </article>
+        <article class="mentor-card">
+          <img src="https://ui-avatars.com/api/?name=Korius+Wenda&background=2e7bff&color=ffffff&size=256" alt="Korius Wenda">
+          <h4>Korius Wenda</h4>
+          <p>Kontributor aktif yang membantu pengembangan materi dan komunitas lokal.</p>
+        </article>
+        <article class="mentor-card">
+          <img src="./asset/images/contributors/Rois-Wanimbo.png" alt="Rois Wanimbo">
+          <h4>Rois Wanimbo</h4>
+          <p>Supporter teknis dan penyelenggara workshop untuk peserta kursus.</p>
+        </article>
+        <article class="mentor-card">
+          <img src="./asset/images/contributors/images-Meson.jpeg" alt="Meson Wakerkwa">
+          <h4>Meson Wakerkwa</h4>
+          <p>Kontributor konten dan pengajar sesi praktis untuk pelatihan digital.</p>
+        </article>
+        <article class="mentor-card">
+          <img src="https://ui-avatars.com/api/?name=Yamile+Gombo&background=2e7bff&color=ffffff&size=256" alt="Yamile Gombo">
+          <h4>Yamile Gombo</h4>
+          <p>Mentor desain dan pemateri inspiratif untuk proyek kreativitas digital.</p>
+        </article>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="section-title">Pertanyaan Umum</h2>
+      <div class="faq-grid">
+        <article class="faq-item">
+          <h4>Apakah saya harus punya pengalaman coding?</h4>
+          <p>Tidak, kelas ini dibuat untuk pemula. Semua peserta akan dibimbing dari dasar sampai dapat membangun project sendiri.</p>
+        </article>
+        <article class="faq-item">
+          <h4>Apakah ada tugas proyek?</h4>
+          <p>Ya, setiap modul memiliki tantangan praktis dan sesi akhir untuk membuat project portofolio.</p>
+        </article>
+        <article class="faq-item">
+          <h4>Bagaimana saya mendaftar?</h4>
+          <p>Tekan tombol "Daftar Sekarang" di halaman ini, lalu isi formulir pendaftaran dan tim kami akan menghubungi Anda.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="enroll-card">
+      <div>
+        <h2>Siap bergabung dengan kelas kursus kami?</h2>
+        <p>Mulai pelatihan teknologi dengan mentor lokal, bangun portofolio, dan dapatkan dukungan komunitas untuk melangkah ke karir digital.</p>
+      </div>
+      <button class="enroll-btn">Daftar Kelas</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-brand"><i class="fas fa-code"></i> EducasiCode</div>
+    <p class="footer-text">2026 EducasiCode Community. Powered by SaCode.</p>
+    <!-- <p class="footer-copy">© 2026 EducasiCode Community. All rights reserved.</p> -->
+    <div class="social-links">
+      <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+    </div>
+  </footer>
+
+  <script src="./asset/js/script.js"></script>
+</body>
+</html>

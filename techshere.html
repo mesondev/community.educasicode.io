@@ -1,0 +1,463 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechShare | EducasiCode Papua</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="./asset/images/edukasicode.png" type="image/png">
+  <link rel="stylesheet" href="./asset/css/style.css">
+  <style>
+    .page-hero {
+      min-height: 88vh;
+      padding: 120px 5% 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .page-hero-content {
+      max-width: 680px;
+    }
+
+    .page-hero-title {
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      margin-bottom: 20px;
+      line-height: 1.05;
+      color: var(--text-primary);
+    }
+
+    .page-hero-title span {
+      color: var(--accent);
+    }
+
+    .page-hero-text {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .page-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .page-intro {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .mini-card {
+      flex: 1 1 170px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .mini-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .mini-card h4 {
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .mini-card p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .event-showcase {
+      margin-top: 60px;
+    }
+
+    .event-showcase h2 {
+      margin-bottom: 20px;
+      color: var(--text-primary);
+    }
+
+    .slider {
+      overflow: hidden;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      box-shadow: var(--shadow);
+    }
+
+    .slide-track {
+      display: flex;
+      gap: 18px;
+      padding: 24px;
+      transition: transform 0.3s ease;
+      scroll-behavior: smooth;
+    }
+
+    .slide-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .event-card {
+      min-width: 320px;
+      max-width: 320px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 0;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    }
+
+    .event-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .event-card-body {
+      padding: 22px;
+    }
+
+    .event-card h3 {
+      margin-bottom: 12px;
+      color: var(--text-primary);
+      font-size: 1.2rem;
+    }
+
+    .event-card p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .event-card .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(46, 123, 255, 0.12);
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .controls {
+      margin-top: 18px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .controls button {
+      padding: 12px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .controls button:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .section-alt {
+      padding: 60px 5%;
+    }
+
+    .section-alt h2 {
+      margin-bottom: 22px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .feature-card h3 {
+      margin-bottom: 14px;
+      color: var(--text-primary);
+    }
+
+    .feature-card p {
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    .speaker-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .speaker-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 22px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .speaker-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+
+    .speaker-card h4 {
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .speaker-card p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 1024px) {
+      .page-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-grid,
+      .speaker-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page-hero {
+        padding-top: 110px;
+      }
+
+      .feature-grid,
+      .speaker-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-hero {
+        padding-top: 100px;
+      }
+
+      .page-hero-title {
+        font-size: 2.4rem;
+      }
+    }
+  </style>
+</head>
+<body data-theme="dark">
+  <div class="bg-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <header class="navbar">
+    <a href="index.html" class="logo-container">
+      <img src="./asset/images/edukasicode.png" alt="Logo" class="logo-img">
+      <span class="brand-name">EducasiCode</span>
+    </a>
+
+    <nav class="nav-menu" id="navMenu">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="course.html" class="nav-link">Kelas Kursus</a>
+      <a href="abouts.html" class="nav-link">About Us</a>
+      <a href="techshere.html" class="nav-link active">TechShare</a>
+      <a href="contributors.html" class="nav-link">Contributors</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="login.html" class="nav-link nav-login">Login</a>
+      <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+        <div class="toggle-ball">
+          <i class="fas fa-sun"></i>
+          <i class="fas fa-moon"></i>
+        </div>
+      </div>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-hero">
+    <div class="page-hero-content">
+      <span class="badge">TechShare Event</span>
+      <h1 class="page-hero-title">Bersama <span>TechShare</span> Kita Belajar Teknologi</h1>
+      <p class="page-hero-text">TechShare adalah program pertemuan rutin EducasiCode untuk berbagi ilmu, demo proyek, dan pengalaman teknologi bagi komunitas Papua. Ideal untuk developer pemula dan pelajar yang ingin berkembang.</p>
+      <div class="page-hero-actions">
+        <button class="btn btn-primary"><i class="fas fa-calendar-check"></i> Jadwal Terbaru</button>
+        <button class="btn btn-secondary"><a href="#event" style="color:inherit;">Lihat Agenda</a></button>
+      </div>
+
+      <div class="page-intro">
+        <div class="mini-card">
+          <h4>Partisipasi Terbuka</h4>
+          <p>Semua anggota komunitas bebas bergabung, hadir secara online atau offline.</p>
+        </div>
+        <div class="mini-card">
+          <h4>Mentor Praktisi</h4>
+          <p>Presentasi dipandu oleh mentor dan kontributor EducasiCode berpengalaman.</p>
+        </div>
+        <div class="mini-card">
+          <h4>Materi Nyata</h4>
+          <p>Fokus pada penerapan nyata: web, database, API, dan tool automation.</p>
+        </div>
+      </div>
+    </div>
+    <div class="course-image">
+      <img src="./asset/images/edukasicode.png" alt="TechShare Event">
+    </div>
+  </main>
+
+  <section class="section-alt" id="event">
+    <h2>Agenda TechShare 2026</h2>
+    <p class="section-intro">Acara TechShare menampilkan sesi singkat, demo, dan diskusi yang dirancang untuk membangun pemahaman praktis dan memotivasi peserta untuk berinovasi.</p>
+
+    <!-- <div class="slider">
+      <div class="slide-track" id="track">
+        <article class="event-card">
+          <img src="https://source.unsplash.com/400x300/?workshop,coding" alt="Software Development">
+          <div class="event-card-body">
+            <span class="badge">Workshop</span>
+            <h3>Software Development</h3>
+            <p>Belajar membuat aplikasi web modern dengan tools terbaru dan best practice pengembangan.</p>
+          </div>
+        </article>
+        <article class="event-card">
+          <img src="https://source.unsplash.com/400x300/?database,sql" alt="Database SQL">
+          <div class="event-card-body">
+            <span class="badge">Diskusi</span>
+            <h3>Database & SQL</h3>
+            <p>Pahami cara menyusun skema, query, dan teknik manajemen data yang efektif.</p>
+          </div>
+        </article>
+        <article class="event-card">
+          <img src="https://source.unsplash.com/400x300/?api,developer" alt="API Integration">
+          <div class="event-card-body">
+            <span class="badge">Demo</span>
+            <h3>API & Integrasi</h3>
+            <p>Praktik membuat API sederhana dan menghubungkannya dengan antarmuka web.</p>
+          </div>
+        </article>
+        <article class="event-card">
+          <img src="https://source.unsplash.com/400x300/?design,ui" alt="UI/UX Session">
+          <div class="event-card-body">
+            <span class="badge">Sesi</span>
+            <h3>UI/UX Dasar</h3>
+            <p>Pelajari desain yang mudah digunakan dan membuat tampilan antarmuka yang menarik.</p>
+          </div>
+        </article>
+      </div>
+    </div> -->
+
+    <div class="controls">
+      <button onclick="pauseSlider()">Pause</button>
+      <button onclick="playSlider()">Play</button>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <h2>Kenapa Bergabung?</h2>
+    <div class="feature-grid">
+      <article class="feature-card">
+        <h3>Wawasan Praktis</h3>
+        <p>Setiap sesi fokus pada pengalaman nyata dari proyek dan masalah yang sering ditemui dalam pengembangan teknologi.</p>
+      </article>
+      <article class="feature-card">
+        <h3>Jaringan Komunitas</h3>
+        <p>Berkenalan dengan kontributor, mentor, dan teman baru yang sama-sama belajar IT.</p>
+      </article>
+      <article class="feature-card">
+        <h3>Dokumentasi Ringkas</h3>
+        <p>Peserta mendapatkan rangkuman dan referensi supaya ilmu bisa dipraktekkan secara langsung setelah acara.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <h2>Pembicara TechShare</h2>
+    <div class="speaker-grid">
+      <article class="speaker-card">
+        <img src="./asset/images/contributors/about-janzen-papuancoders.png" alt="Pembicara 1">
+        <h4>Janzen Faidiban</h4>
+        <p>Presenter full-stack developer yang berbagi strategi membangun aplikasi end-to-end.</p>
+      </article>
+      <article class="speaker-card">
+        <img src="./asset/images/contributors/rois-wanimbo.png" alt="Pembicara 2">
+        <h4>Rois Wanimbo</h4>
+        <p>Mentor UI/UX yang mengulas desain antarmuka dan pengalaman pengguna efektif.</p>
+      </article>
+      <article class="speaker-card">
+        <img src="./asset/images/contributors/images-samuel.jpg" alt="Pembicara 3">
+        <h4>Samuel Bosawer</h4>
+        <p>Praktisi database dan API dengan penjelasan sederhana untuk pemula.</p>
+      </article>
+      <article class="speaker-card">
+        <img src="./asset/images/contributors/Mr.Mee.png" alt="Pembicara 4">
+        <h4>Meson wakerkwa</h4>
+        <p>Spesialis automation yang berbagi cara mempercepat proses pengembangan.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <h2 class="section-title">Siap Gabung TechShare?</h2>
+    <p class="section-intro">Daftar ke acara berikutnya dan perkuat kemampuan Anda dengan sesi berbasis praktik, diskusi, dan mentorship langsung.</p>
+    <button class="btn btn-primary"><i class="fas fa-handshake"></i> Bergabung Sekarang</button>
+  </section>
+
+  <footer>
+    <div class="footer-brand"><i class="fas fa-code"></i> EducasiCode</div>
+    <p class="footer-text">2026 EducasiCode Community. Powered by SaCode.</p>
+    <!-- <p class="footer-copy">© 2026 EducasiCode Community. All rights reserved.</p> -->
+    <div class="social-links">
+      <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+    </div>
+  </footer>
+
+  <script src="./asset/js/script.js"></script>
+</body>
+</html>

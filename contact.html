@@ -1,0 +1,307 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | EducasiCode Papua</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="./asset/images/edukasicode.png" type="image/png">
+  <link rel="stylesheet" href="./asset/css/style.css">
+  <style>
+    .page-hero {
+      min-height: 80vh;
+      padding: 120px 5% 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .page-hero-title {
+      font-size: clamp(3rem, 5vw, 4.4rem);
+      margin-bottom: 22px;
+      line-height: 1.05;
+      color: var(--text-primary);
+    }
+
+    .page-hero-title span {
+      color: var(--accent);
+    }
+
+    .page-hero-text {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 660px;
+      margin-bottom: 28px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 32px;
+      padding: 0 5%;
+      margin-bottom: 80px;
+    }
+
+    .contact-form {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 36px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-form h2 {
+      margin-bottom: 18px;
+      color: var(--text-primary);
+    }
+
+    .contact-form p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      color: var(--text-primary);
+      padding: 14px 16px;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(46,123,255,0.12);
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 20px;
+    }
+
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .info-card h3 {
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+
+    .info-card p,
+    .info-card a {
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .info-item i {
+      color: var(--accent);
+      font-size: 1.4rem;
+      margin-top: 4px;
+    }
+
+    .map-card {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      background: var(--bg-card);
+    }
+
+    .map-card iframe {
+      width: 100%;
+      height: 360px;
+      border: 0;
+      display: block;
+    }
+
+    .contact-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 26px;
+      border-radius: 16px;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .contact-submit:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 1024px) {
+      .page-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page-hero {
+        padding-top: 110px;
+      }
+    }
+  </style>
+</head>
+<body data-theme="dark">
+  <div class="bg-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <header class="navbar">
+    <a href="index.html" class="logo-container">
+      <img src="./asset/images/edukasicode.png" alt="Logo" class="logo-img">
+      <span class="brand-name">EducasiCode</span>
+    </a>
+
+    <nav class="nav-menu" id="navMenu">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="course.html" class="nav-link">Kelas Kursus</a>
+      <a href="abouts.html" class="nav-link">About Us</a>
+      <a href="techshere.html" class="nav-link">TechShare</a>
+      <a href="contributors.html" class="nav-link">Contributors</a>
+      <a href="contact.html" class="nav-link active">Contact</a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="login.html" class="nav-link nav-login">Login</a>
+      <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+        <div class="toggle-ball">
+          <i class="fas fa-sun"></i>
+          <i class="fas fa-moon"></i>
+        </div>
+      </div>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-hero">
+    <div>
+      <span class="badge">Contact</span>
+      <h1 class="page-hero-title">Hubungi <span>EducasiCode</span></h1>
+      <p class="page-hero-text">Butuh informasi kelas, mengikuti TechShare, atau bergabung sebagai kontributor? Hubungi kami melalui formulir di bawah ini atau kunjungi kantor kami di Papua.</p>
+      <button class="btn btn-primary"><i class="fas fa-envelope"></i> Kirim Pesan</button>
+    </div>
+    <div class="course-image">
+      <img src="./asset/images/edukasicode.png" alt="Contact Support">
+    </div>
+  </main>
+
+  <section class="contact-grid">
+    <div class="contact-form">
+      <h2>Tulis Pesan Anda</h2>
+      <p>Tim kami akan membalas pesan Anda dalam 1-2 hari kerja. Pastikan email dan pesan ditulis dengan jelas.</p>
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Nama Lengkap</label>
+          <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="contoh@mail.com" required>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subjek</label>
+          <input type="text" id="subject" name="subject" placeholder="Judul pesan" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Pesan</label>
+          <textarea id="message" name="message" rows="6" placeholder="Tulis pesan Anda di sini" required></textarea>
+        </div>
+        <button type="submit" class="contact-submit"><i class="fas fa-paper-plane"></i> Kirim Pesan</button>
+      </form>
+    </div>
+
+    <div class="contact-info">
+      <div class="info-card">
+        <h3>Informasi Kontak</h3>
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <strong>Alamat</strong>
+            <p>Jl. Edukasi No. 1, Jayapura, Papua</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <strong>Email</strong>
+            <p>info@edukasicode.id</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fas fa-phone"></i>
+          <div>
+            <strong>Telepon</strong>
+            <p>+62 811 2345 678</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-card">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d398.2190436943348!2d140.63833930254864!3d-2.594017334261422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x686cf5001e442c67%3A0xa67ddd5fe40dccfc!2sKompleks%20Maralex!5e1!3m2!1sid!2sid!4v1780571044460!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.851284372646!2d106.82715387511276!3d-6.175392995506544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3f16514df47%3A0x123456789abcdef!2sEdukasiCode%20Papua!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-brand"><i class="fas fa-code"></i> EducasiCode</div>
+    <p class="footer-text">2026 EducasiCode Community. Powered by SaCode.</p>
+    <!-- <p class="footer-copy">© 2026 EducasiCode Community. All rights reserved.</p> -->
+    <div class="social-links">
+      <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+    </div>
+  </footer>
+
+  <script src="./asset/js/script.js"></script>
+</body>
+</html>

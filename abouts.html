@@ -1,0 +1,411 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | EducasiCode Papua</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="./asset/images/edukasicode.png" type="image/png">
+  <link rel="stylesheet" href="./asset/css/style.css">
+  <style>
+    .page-hero {
+      min-height: 88vh;
+      padding: 140px 5% 80px;
+      display: grid;
+      grid-template-columns: minmax(280px, 1.1fr) minmax(320px, 1fr);
+      gap: 60px;
+      align-items: flex-start;
+    }
+
+    .page-hero > div:first-child {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .page-hero-title {
+      font-size: clamp(3.2rem, 5vw, 4.8rem);
+      margin-bottom: 8px;
+      color: var(--text-primary);
+      line-height: 1.02;
+    }
+
+    .page-hero-title span {
+      color: var(--accent);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.1rem;
+      border-radius: 999px;
+      background: rgba(46, 123, 255, 0.14);
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .page-hero-text {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 32px;
+      max-width: 640px;
+    }
+
+    .page-hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .page-hero-actions .btn {
+      min-width: 160px;
+      border-radius: 999px;
+      padding: 14px 22px;
+    }
+
+    .page-hero-actions .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-primary);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+      margin-bottom: 60px;
+    }
+
+    section.container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 80px 5% 140px;
+    }
+
+    .value-grid {
+      margin-bottom: 50px;
+    }
+
+    .timeline-card {
+      margin-bottom: 40px;
+    }
+
+    .story-card,
+    .value-card,
+    .timeline-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .story-card h3,
+    .value-card h3,
+    .timeline-card h3 {
+      color: var(--text-primary);
+      margin-bottom: 14px;
+    }
+
+    .story-card p,
+    .value-card p,
+    .timeline-card p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .value-card {
+      transition: transform 0.3s ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .timeline-card {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .timeline-item span {
+      min-width: 50px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .timeline-item div > p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .about-image {
+      border-radius: 30px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      background: var(--bg-card);
+      min-height: 520px;
+      max-height: 640px;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, rgba(46,123,255,0.18), rgba(9,131,255,0.08));
+      border: 1px solid rgba(46,123,255,0.25);
+      border-radius: 28px;
+      padding: 36px;
+      display: grid;
+      gap: 18px;
+      margin-top: 40px;
+    }
+
+    .cta-box h2 {
+      margin-bottom: 12px;
+      color: var(--text-primary);
+      font-size: 2rem;
+    }
+
+    .cta-box p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    @media (max-width: 1024px) {
+      .page-hero,
+      .story-grid,
+      .value-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page-hero {
+        padding: 120px 5% 60px;
+        gap: 40px;
+      }
+
+      .page-hero > div:first-child {
+        order: 1;
+      }
+
+      .about-image {
+        min-height: 420px;
+        max-height: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page-hero {
+        padding: 100px 5% 50px;
+      }
+
+      .page-hero-title {
+        font-size: clamp(2.4rem, 7vw, 3.6rem);
+      }
+
+      .page-hero-text {
+        font-size: 0.98rem;
+      }
+
+      .page-hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .page-hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .about-image {
+        min-height: 300px;
+      }
+
+      .cta-box {
+        padding: 28px;
+      }
+
+      .cta-box h2 {
+        font-size: 1.75rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-hero {
+        padding: 90px 4% 40px;
+      }
+
+      .page-hero-title {
+        font-size: clamp(2rem, 10vw, 2.8rem);
+        margin-bottom: 16px;
+      }
+
+      .page-hero-text {
+        max-width: 100%;
+      }
+
+      .story-grid,
+      .value-grid {
+        gap: 18px;
+      }
+
+      .page-hero-actions {
+        gap: 14px;
+      }
+
+      .cta-box {
+        padding: 24px;
+        border-radius: 24px;
+      }
+
+      .container {
+        padding: 0 4%;
+      }
+    }
+  </style>
+</head>
+<body data-theme="dark">
+  <div class="bg-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+  <header class="navbar">
+    <a href="index.html" class="logo-container">
+      <img src="./asset/images/edukasicode.png" alt="Logo" class="logo-img">
+      <span class="brand-name">EducasiCode</span>
+    </a>
+    <nav class="nav-menu" id="navMenu">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="abouts.html" class="nav-link active">About Us</a>
+      <a href="techshere.html" class="nav-link">TechShare</a>
+      <a href="contributors.html" class="nav-link">Contributors</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a href="login.html" class="nav-link nav-login">Login</a>
+      <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+        <div class="toggle-ball">
+          <i class="fas fa-sun"></i>
+          <i class="fas fa-moon"></i>
+        </div>
+      </div>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+  <main class="page-hero">
+    <div>
+      <span class="badge">Siapa Kami</span>
+      <h1 class="page-hero-title">EducasiCode adalah <span>Komunitas dan Sekolah</span> Teknologi Papua</h1>
+      <p class="page-hero-text">Kami menghadirkan pelatihan coding, acara TechShare, dan dukungan komunitas untuk membangun talenta digital Papua. Fokus kami adalah pendidikan, kolaborasi, dan proyek nyata yang mendorong peserta maju dalam karir teknologi.</p>
+      <div class="page-hero-actions">
+        <button class="btn btn-primary"><i class="fas fa-hands-helping"></i> Bergabung</button>
+        <button class="btn btn-secondary"><a href="#story" style="color: inherit;">Cerita Kami</a></button>
+      </div>
+      <div class="story-grid" id="story">
+        <article class="story-card">
+          <h3>Misi</h3>
+          <p>Memberdayakan generasi muda Papua dengan keterampilan digital, peluang belajar yang inklusif, dan dukungan komunitas yang konsisten.</p>
+        </article>
+        <article class="story-card">
+          <h3>Visi</h3>
+          <p>Menjadi pusat pembelajaran teknologi lokal yang menghubungkan peserta dengan mentor, proyek nyata, dan peluang karir digital.</p>
+        </article>
+      </div>
+    </div>
+    <div class="about-image">
+      <img src="./asset/images/edukasicode.png" alt="About EducasiCode">
+    </div>
+  </main>
+  <section class="container">
+    <div class="value-grid">
+      <article class="value-card">
+        <h3>Belajar Praktis</h3>
+        <p>Materi kami menekankan praktek langsung sehingga peserta dapat membuat hasil nyata sejak awal.</p>
+      </article>
+      <article class="value-card">
+        <h3>Komunitas Aktif</h3>
+        <p>Semua peserta mendapat akses komunitas untuk berbagi pengalaman, bertanya, dan membangun proyek bersama.</p>
+      </article>
+      <article class="value-card">
+        <h3>Dukungan Lokal</h3>
+        <p>Kami bekerja dengan mentor Papua untuk memastikan pembelajaran relevan dan dapat diterapkan di lingkungan lokal.</p>
+    </article>
+    </div>
+    <article class="timeline-card">
+      <h3>Perjalanan Kami</h3>
+      <div class="timeline-item">
+        <span>2018</span>
+        <div>
+          <p>Didirikan sebagai kursus privat dengan tujuan membuka akses pembelajaran coding bagi pelajar dan pemuda di Papua.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span>2023</span>
+        <div>
+          <p>Perluasan program menjadi komunitas digital yang menyelenggarakan TechShare, kelas, dan mentoring.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span>2026</span>
+        <div>
+          <p>Menjadi ekosistem belajar dan jaringan kontributor yang mendukung pengembangan talenta teknologi lokal.</p>
+        </div>
+      </div>
+    </article>
+    <article class="cta-box">
+      <h2>Mau Tahu Lebih Lanjut?</h2>
+      <p>Ikuti program kami, hadiri acara TechShare, atau kirim pesan untuk konsultasi kursus. Kami siap membantu Anda mulai langkah pertama di dunia teknologi.</p>
+    </article>
+  </section>
+  <footer>
+    <div class="footer-brand"><i class="fas fa-code"></i> EducasiCode</div>
+    <p class="footer-text">2026 EducasiCode Community. Powered by SaCode.</p>
+    <!-- <p class="footer-copy">© 2026 EducasiCode Community. All rights reserved.</p> -->
+    <div class="social-links">
+      <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+    </div>
+  </footer>
+  <script src="./asset/js/script.js"></script>
+</body>
+</html>

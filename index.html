@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EducasiCode Community</title>
+  
+  <!-- ICON -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="./asset/images/edukasicode.png" type="image/png">
+  <!-- koneksi css -->
+  <link rel="stylesheet" href="./asset/css/style.css">
+</head>
+<body data-theme="dark">
+
+  <!-- Background Decoration -->
+  <div class="bg-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="./asset/images/edukasicode.png" class="logo-container">
+      <!-- Ganti src dengan path logo Anda -->
+      <img src="./asset/images/edukasicode.png" alt="Logo" class="logo-img">
+      <span class="brand-name"></span>
+    </a>
+
+    <nav class="nav-menu" id="navMenu">
+      <a href="#" class="nav-link active">Home</a>
+      <a href="course.html" class="nav-link">Kelas Kursus</a>
+      <a href="abouts.html" class="nav-link">About Us</a>
+      <a href="techshere.html" class="nav-link">TechShare</a>
+      <a href="contributors.html" class="nav-link">Contributors</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="login.html" class="nav-link nav-login">Login</a>
+      <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+        <div class="toggle-ball">
+          <i class="fas fa-sun"></i>
+          <i class="fas fa-moon"></i>
+        </div>
+      </div>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+<br>
+  <!-- HERO SECTION -->
+  <main class="hero">
+    <div class="hero-content">
+      <span class="badge">Community & School</span>
+      <h1 class="hero-title">EducasiCode <span>Papua</span></h1>
+      <p class="hero-desc">
+        A community of Information and Communication Technology Enthusiasts in Papua. 
+        Established in 2025, empowering the next generation of developers.
+      </p>
+      
+      <div class="cta-container">
+        <button class="btn btn-primary">
+          <i class="fas fa-rocket"></i> Get Started
+        </button>
+        <button class="btn btn-secondary">
+          <i class="fas fa-users"></i> <a href="contributors.html">Our Contributors</a>
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <div class="main-image-card">
+        <img id="heroImage" src="./asset/images/contributors/images-Meson.jpeg" alt="Community Activity">
+      </div>
+      
+      <div class="info-card">
+        <p class="info-text">
+          Supported by amazing organizations providing coding class space and collaboration initiatives.
+        </p>
+        <div class="partner-logos">
+          <img src="./asset/images/edukasicode.png" alt="Partner 1">
+          <img src="./asset/images/SAGU-FOUNDATION-FONT-HITAM-1.png" alt="Partner 2">
+          <img src="./asset/images/sacode.png" alt="Partner 3">
+          <!-- <img src="assets/logo4.png" alt="Partner 4"> -->
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-brand"><i class="fas fa-code"></i> EducasiCode</div>
+    <p class="footer-text">2026 EducasiCode Community. Powered by SaCode.</p>
+    <!-- <p class="footer-copy">© 2026 EducasiCode Community. All rights reserved.</p> -->
+    <div class="social-links">
+      <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+    </div>
+  </footer>
+
+  <script src="./asset/js/script.js"></script>
+
+</body>
+</html>

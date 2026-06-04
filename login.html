@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | EducasiCode Papua</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="./asset/images/edukasicode.png" type="image/png">
+  <link rel="stylesheet" href="./asset/css/style.css">
+</head>
+<body data-theme="dark">
+  <div class="bg-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+  <header class="navbar">
+    <a href="index.html" class="logo-container">
+      <img src="./asset/images/edukasicode.png" alt="Logo" class="logo-img">
+      <span class="brand-name">EducasiCode</span>
+    </a>
+    <nav class="nav-menu" id="navMenu">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="course.html" class="nav-link">Course</a>
+      <a href="abouts.html" class="nav-link">About Us</a>
+      <a href="techshere.html" class="nav-link">TechShare</a>
+      <a href="contributors.html" class="nav-link">Contributors</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a href="login.html" class="nav-link nav-login active">Login</a>
+      <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+        <div class="toggle-ball">
+          <i class="fas fa-sun"></i>
+          <i class="fas fa-moon"></i>
+        </div>
+      </div>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+  <main class="hero">
+    <div class="hero-content">
+      <span class="badge">Masuk</span>
+      <h1 class="hero-title">Akses Akun EducasiCode</h1>
+      <p class="hero-desc">Masuk untuk melihat program, materi, dan jadwal terbaru. Cocok untuk peserta, mentor, dan anggota komunitas Papua.</p>
+      <div class="cta-container">
+        <a href="#login-form" class="btn btn-primary">Masuk Sekarang</a>
+        <a href="#" class="btn btn-secondary">Pelajari Lebih Lanjut</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <article class="login-card" id="login-form">
+        <div class="login-card-header">
+          <img src="./asset/images/edukasicode.png" alt="Logo EducasiCode" class="login-card-logo">
+          <span class="badge">Form Login</span>
+          <h2>Selamat datang kembali</h2>
+          <p>Masuk dengan akun kamu untuk lanjut belajar dan mengakses semua fitur EducasiCode.</p>
+        </div>
+        <form class="login-form" action="#" method="post">
+          <label class="form-field">
+            <span>Email</span>
+            <input type="email" name="email" placeholder="email@domain.com" required>
+          </label>
+          <label class="form-field">
+            <span>Password</span>
+            <input type="password" name="password" placeholder="Masukkan password" required>
+          </label>
+          <div class="form-row">
+            <label class="checkbox-field"><input type="checkbox" name="remember"> Ingat saya</label>
+            <a href="#" class="link-secondary">Lupa password?</a>
+          </div>
+          <button type="submit" class="btn btn-primary">Masuk Sekarang</button>
+          <div class="social-contacts">
+            <a href="mailto:halo@edukasicode.id"><i class="fas fa-envelope"></i> halo@edukasicode.id</a>
+            <a href="https://github.com/edukasicode" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+          <p class="form-note">Belum punya akun? <a href="register.html">Daftar sekarang</a></p>
+        </form>
+      </article>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-brand"><i class="fas fa-code"></i> EducasiCode</div>
+    <p class="footer-text">2026 EducasiCode Community. Powered by SaCode.</p>
+    <div class="social-links">
+      <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+    </div>
+  </footer>
+  <script src="./asset/js/script.js"></script>
+</body>
+</html>

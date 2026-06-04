@@ -1,0 +1,361 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contributors | EducasiCode Papua</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="./asset/images/edukasicode.png" type="image/png">
+  <link rel="stylesheet" href="./asset/css/style.css">
+  <style>
+    .page-hero {
+      min-height: 80vh;
+      padding: 120px 5% 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .page-hero-title {
+      font-size: clamp(3rem, 5vw, 4.4rem);
+      color: var(--text-primary);
+      margin-bottom: 22px;
+      line-height: 1.05;
+    }
+
+    .page-hero-title span {
+      color: var(--accent);
+    }
+
+    .page-hero-text {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 28px;
+      max-width: 660px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 22px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-card span {
+      display: block;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .stat-card p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .contributor-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 60px;
+    }
+
+    .profile-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 26px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .profile-avatar {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      margin: 0 auto 18px;
+    }
+
+    .profile-card h4 {
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .profile-card p {
+      margin-bottom: 16px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .profile-card .profile-meta {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    .contributor-chart {
+      margin-top: 40px;
+    }
+
+    .chart-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .chart-card h3 {
+      margin-bottom: 16px;
+      color: var(--text-primary);
+      font-size: 1.25rem;
+    }
+
+    .chart-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 16px;
+    }
+
+    .chart-label {
+      color: var(--text-primary);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .chart-bar-bg {
+      background: rgba(255,255,255,0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      height: 14px;
+    }
+
+    .chart-bar {
+      width: 0;
+      height: 100%;
+      background: var(--accent);
+      border-radius: 999px;
+      transition: width 1s ease;
+    }
+
+    .chart-value {
+      color: var(--text-primary);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .contributor-values {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 50px;
+    }
+
+    .value-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .value-card h3 {
+      margin-bottom: 14px;
+      color: var(--text-primary);
+    }
+
+    .value-card p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 1024px) {
+      .page-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid,
+      .contributor-grid,
+      .contributor-values {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .stats-grid,
+      .contributor-grid,
+      .contributor-values {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body data-theme="dark">
+  <div class="bg-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <header class="navbar">
+    <a href="index.html" class="logo-container">
+      <img src="./asset/images/edukasicode.png" alt="Logo" class="logo-img">
+      <span class="brand-name">EducasiCode</span>
+    </a>
+
+    <nav class="nav-menu" id="navMenu">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="course.html" class="nav-link">Kelas Kursus</a>
+      <a href="abouts.html" class="nav-link">About Us</a>
+      <a href="techshere.html" class="nav-link">TechShare</a>
+      <a href="contributors.html" class="nav-link active">Contributors</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="login.html" class="nav-link nav-login">Login</a>
+      <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+        <div class="toggle-ball">
+          <i class="fas fa-sun"></i>
+          <i class="fas fa-moon"></i>
+        </div>
+      </div>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-hero">
+    <div>
+      <span class="badge">Kontributor</span>
+      <h1 class="page-hero-title">Tim <span>Contributors</span> EducasiCode</h1>
+      <p class="page-hero-text">Para kontributor kami adalah penggerak komunitas, mentor, pembicara, dan developer yang berbagi waktu untuk membangun ekosistem digital Papua.</p>
+      <div class="page-hero-actions">
+        <button class="btn btn-primary"><i class="fas fa-user-plus"></i> Jadi Kontributor</button>
+        <button class="btn btn-secondary"><a href="#profiles" style="color:inherit;">Lihat Profil</a></button>
+      </div>
+    </div>
+    <div class="course-image">
+      <img src="./asset/images/edukasicode.png" alt="Contributors Team">
+    </div>
+  </main>
+
+  <section class="section-alt" id="profiles">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span>12+</span>
+        <p>Kontributor aktif yang terus berbagi setiap bulan.</p>
+      </div>
+      <div class="stat-card">
+        <span>24</span>
+        <p>Event dan workshop yang diselenggarakan bersama komunitas.</p>
+      </div>
+      <div class="stat-card">
+        <span>100+</span>
+        <p>Peserta terlatih dari kota-kota di Papua dan sekitarnya.</p>
+      </div>
+    </div>
+
+    <div class="contributor-grid">
+      <article class="profile-card" data-role="mentor">
+        <img class="profile-avatar" src="./asset/images/contributors/images-Meson.jpeg" alt="Meson Wakerkwa">
+        <h4>Meson Wakerkwa</h4>
+        <p>Mentor UI/UX dan edukator desain digital untuk kelas web dan komunitas.</p>
+        <div class="profile-meta">Trainer • Developer</div>
+      </article>
+      <article class="profile-card" data-role="mentor">
+        <img class="profile-avatar" src="./asset/images/contributors/images Jansen-faidiban.jpg" alt="Janzen Faidifan">
+        <h4>Janzen Faidifan</h4>
+        <p>Developer full-stack yang memimpin sesi proyek dan praktik langsung.</p>
+        <div class="profile-meta">Ceo • SaCode</div>
+      </article>
+      <article class="profile-card" data-role="mentor">
+        <img class="profile-avatar" src="./asset/images/contributors/images-samuel.jpg" alt="Samuel Bosawer">
+        <h4>Samuel Bosawer</h4>
+        <p>Spesialis backend dan database yang membantu peserta paham arsitektur server.</p>
+        <div class="profile-meta">Ceo • SaCode</div>
+      </article>
+      <article class="profile-card" data-role="contributor">
+        <img class="profile-avatar" src="./asset/images/contributors/rois-wanimbo.png" alt="Rois Wanimbo">
+        <h4>Rois Wanimbo</h4>
+        <p>Moderator acara belajar dan penghubung komunitas dengan mentor.</p>
+        <div class="profile-meta">Trainer | Developer</div>
+      </article>
+    </div>
+
+    <div class="contributor-chart">
+      <div class="chart-card">
+        <h3>Persentase Peran Mentor & Contributor</h3>
+        <div class="chart-row" data-role="mentor">
+          <div class="chart-label">Mentor</div>
+          <div class="chart-bar-bg"><div class="chart-bar"></div></div>
+          <div class="chart-value">0%</div>
+        </div>
+        <div class="chart-row" data-role="contributor">
+          <div class="chart-label">Contributor</div>
+          <div class="chart-bar-bg"><div class="chart-bar"></div></div>
+          <div class="chart-value">0%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contributor-values">
+      <article class="value-card">
+        <h3>Berbagi Ilmu</h3>
+        <p>Kontributor kami aktif membimbing peserta kursus dan berbagi praktik terbaik.</p>
+      </article>
+      <article class="value-card">
+        <h3>Kolaborasi</h3>
+        <p>Setiap kontributor membuka peluang kolaborasi proyek dan acara komunitas.</p>
+      </article>
+      <article class="value-card">
+        <h3>Dukungan Lokal</h3>
+        <p>Fokus pada pengembangan talenta Papua dengan pendekatan infrastruktur lokal.</p>
+      </article>
+    </div>
+  </section><br><br>
+
+  <footer>
+    <div class="footer-brand"><i class="fas fa-code"></i> EducasiCode</div>
+    <p class="footer-text">2026 EducasiCode Community. Powered by SaCode.</p>
+    <!-- <p class="footer-copy">© 2026 EducasiCode Community. All rights reserved.</p> -->
+    <div class="social-links">
+      <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+    </div>
+  </footer>
+
+  <script src="./asset/js/script.js"></script>
+</body>
+</html>
