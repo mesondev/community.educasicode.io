@@ -123,7 +123,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      padding: 16px 5%;
+      padding: 16px max(12px, 5%);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -236,7 +236,7 @@
 
     section.container {
       margin-top: 40px;
-      padding-bottom: 50px;
+      padding: 0 max(12px, 5%) 50px;
     }
 
     /* Theme Toggle */
@@ -317,7 +317,7 @@
     /* ==================== HERO SECTION ==================== */
     .hero {
       min-height: 100vh;
-      padding: 120px 5% 60px;
+      padding: 120px max(12px, 5%) 60px;
       display: flex;
       align-items: center;
       gap: 50px;
@@ -705,7 +705,7 @@
 
     /* ==================== FOOTER ==================== */
     footer {
-      padding: 40px 5%;
+      padding: 40px max(12px, 5%);
       background: var(--bg-secondary);
       border-top: 1px solid var(--border);
       text-align: center;
@@ -788,7 +788,7 @@
     /* Mobile ( < 768px ) */
     @media (max-width: 768px) {
       .navbar {
-        padding: 10px 4%;
+        padding: 10px max(12px, 4%);
       }
 
       .nav-menu {
@@ -799,11 +799,12 @@
         height: 100vh;
         background: rgba(8, 8, 12, 0.98);
         flex-direction: column;
-        justify-content: center;
-        gap: 28px;
-        padding: 90px 28px 28px;
+        justify-content: flex-start;
+        gap: 0;
+        padding: 80px 24px 24px;
         transition: right 0.4s ease;
         box-shadow: -6px 0 34px rgba(0,0,0,0.3);
+        overflow-y: auto;
       }
 
       .nav-menu.active {
@@ -824,6 +825,10 @@
         font-size: 1rem;
       }
 
+      .hero {
+        padding: 110px max(12px, 4%) 60px;
+      }
+
       .hero-title {
         font-size: 2rem;
       }
@@ -840,6 +845,65 @@
       
       .partner-logos {
           justify-content: center;
+      }
+
+      /* Mobile menu: logo at top and social links at bottom inside nav-menu */
+      .nav-menu .logo-container.mobile-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 32px;
+        justify-content: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 24px;
+      }
+
+      .nav-menu .logo-container.mobile-logo .logo-img {
+        height: 48px;
+      }
+
+      .nav-menu .logo-container.mobile-logo .brand-name {
+        display: inline-block;
+        font-size: 1rem;
+        color: var(--text-primary);
+      }
+
+      /* Nav links wrapper */
+      .nav-menu .nav-link {
+        display: block;
+        width: 100%;
+        padding: 14px 16px;
+        margin-bottom: 8px;
+        text-align: left;
+        border-radius: 12px;
+        font-size: 1rem;
+      }
+
+      /* Login button in menu */
+      .nav-menu .nav-link.nav-login {
+        margin-top: 24px;
+        margin-bottom: 24px;
+        padding: 14px 16px;
+        text-align: center;
+        width: 100%;
+      }
+
+      .nav-menu .mobile-footer-socials {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        margin-top: auto;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .nav-menu .mobile-footer-socials .social-icon {
+        width: 44px;
+        height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
       }
     }
 
@@ -861,6 +925,30 @@
 
       [data-theme="light"] .toggle-ball {
         transform: translateX(24px);
+      }
+    }
+
+    /* Responsive menu content wrapper to push social to bottom */
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .nav-menu > .nav-link:not(.nav-login):not(.logo-container):not(.mobile-footer-socials) {
+        order: 2;
+      }
+
+      .nav-menu > .nav-link.nav-login {
+        order: 3;
+      }
+
+      .nav-menu > .mobile-footer-socials {
+        order: 4;
+      }
+
+      .nav-menu > .logo-container.mobile-logo {
+        order: 1;
       }
     }
 
@@ -894,161 +982,33 @@
         
 
   /* </style about star> */
-            /* RESET */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
+  /* Removed duplicate global reset/body override that conflicted with CSS variables. */
+  /* Responsive and page-specific styles kept elsewhere; add targeted adjustments below. */
 
-    body {
-      background: #000;
-      color: #fff;
-      overflow-x: hidden;
-    }
+/* Adjust hero image size slightly smaller */
+.main-image-card {
+  max-width: 520px;
+  margin: 0 auto;
+}
 
-    /* CONTAINER */
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
-    }
+@media (max-width: 768px) {
+  .main-image-card { max-width: 420px; }
+}
 
-    /* SECTION */
-    .about {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-    }
+/* Move login into mobile menu: hide top-right login on smaller screens */
+@media (max-width: 1024px) {
+  .nav-right .nav-login { display: none !important; }
+  .nav-menu .nav-login { display: block; }
+}
 
-    /* LABEL */
-    .label {
-      font-size: 14px;
-      color: #aaa;
-      letter-spacing: 3px;
-      margin-bottom: 20px;
-      display: block;
-    }
+/* Stack modules on tablet/mobile to full width */
+@media (max-width: 1024px) {
+  .module-grid { grid-template-columns: 1fr !important; }
+}
 
-    /* TITLE */
-    .title {
-      font-size: 55px;
-      font-weight: 700;
-      line-height: 1.3;
-    }
-
-    .title span {
-      color: #3b82f6;
-    }
-
-    /* DESCRIPTION */
-    .description {
-      margin-top: 25px;
-      font-size: 18px;
-      color: #ccc;
-      line-height: 1.7;
-    }
-
-    /* HISTORY */
-    .history {
-      margin-top: 50px;
-      text-align: left;
-    }
-
-    .history h3 {
-      font-size: 26px;
-      margin-bottom: 15px;
-      text-align: center;
-    }
-
-    .history p {
-      font-size: 17px;
-      color: #ccc;
-      line-height: 1.6;
-      text-align: center;
-    }
-
-    /* ANIMATION */
-    .fade {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .title {
-        font-size: 38px;
-      }
-
-      .description {
-        font-size: 16px;
-      }
-
-      .history {
-        text-align: center;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .title {
-        font-size: 28px;
-      }
-
-      .description {
-        font-size: 14px;
-      }
-    }
-     /* 🔥 NEW STYLE */
-    .about-detail {
-      margin-top: 60px;
-    }
-
-    .about-detail img {
-      width: 100%;
-      max-width: 500px;
-      border-radius: 15px;
-      margin: auto;
-      display: block;
-    }
-
-    .detail-text {
-      margin-top: 25px;
-    }
-
-    .detail-text h2 {
-      font-size: 26px;
-      color: #3b82f6;
-      margin-bottom: 10px;
-    }
-
-    .detail-text p {
-      font-size: 16px;
-      color: #ccc;
-      line-height: 1.7;
-    }
-
-    /* ANIMATION */
-    .fade {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .title {
-        font-size: 35px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .title {
-        font-size: 28px;
-      }
-    }
-  /* </style about end> */
+@media (max-width: 480px) {
+  .module-grid { gap: 18px; }
+}
 
   /* CONTRIBUTOR */
 .contributor{
@@ -1069,7 +1029,7 @@
 .contributor h2{
     font-size:45px;
     background: linear-gradient(90deg,#4facfe,#00f2fe);
-    -webkit-background-clip:text;
+    /* -webkit-background-clip:text; */
     color:transparent;
 }
 

@@ -167,6 +167,93 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroImageRotation();
 });
 
+// Move or clone the login link into the mobile nav menu when viewport is small
+function syncMobileLogin() {
+  const loginSelector = '.nav-link.nav-login';
+  const navRight = document.querySelector('.nav-right');
+  const navMenu = document.getElementById('navMenu');
+  if (!navRight || !navMenu) return;
+
+  const existingInMenu = navMenu.querySelector(loginSelector);
+  const original = navRight.querySelector(loginSelector);
+
+  if (window.innerWidth <= 1024) {
+    if (!existingInMenu && original) {
+      const clone = original.cloneNode(true);
+      clone.setAttribute('data-cloned', 'true');
+      clone.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+      });
+      navMenu.appendChild(clone);
+    }
+    // hide original (CSS also hides it) but keep for restoring
+    if (original) original.style.display = 'none';
+  } else {
+    // restore: remove cloned if exists and show original
+    if (existingInMenu) existingInMenu.remove();
+    if (original) original.style.display = '';
+  }
+}
+
+// initialize and bind resize
+window.addEventListener('resize', () => {
+  syncMobileLogin();
+});
+
+// run once on load
+syncMobileLogin();
+
+// Clone/move logo and footer social links into mobile nav for small screens
+function syncMobileExtras() {
+  const navMenu = document.getElementById('navMenu');
+  const logoContainer = document.querySelector('.logo-container');
+  const footerSocials = document.querySelector('footer .social-links');
+  if (!navMenu) return;
+
+  const existingLogo = navMenu.querySelector('.logo-container');
+  const existingFooterSocials = navMenu.querySelector('.mobile-footer-socials');
+
+  if (window.innerWidth <= 1024) {
+    // logo at top
+    if (!existingLogo && logoContainer) {
+      const cloneLogo = logoContainer.cloneNode(true);
+      cloneLogo.classList.add('mobile-logo');
+      cloneLogo.setAttribute('data-cloned', 'true');
+      cloneLogo.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+      });
+      navMenu.prepend(cloneLogo);
+    }
+
+    // footer socials at bottom
+    if (!existingFooterSocials && footerSocials) {
+      const cloneSocials = footerSocials.cloneNode(true);
+      cloneSocials.classList.add('mobile-footer-socials');
+      cloneSocials.setAttribute('data-cloned', 'true');
+      cloneSocials.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+          hamburger.classList.remove('active');
+        });
+      });
+      navMenu.appendChild(cloneSocials);
+    }
+
+  } else {
+    if (existingLogo) existingLogo.remove();
+    if (existingFooterSocials) existingFooterSocials.remove();
+  }
+}
+
+window.addEventListener('resize', () => {
+  syncMobileExtras();
+});
+
+// run once on load
+syncMobileExtras();
+
 function renderRoleChart() {
   const chartRows = document.querySelectorAll('.chart-row');
   if (!chartRows.length) return;
